@@ -15,7 +15,7 @@ class KetexSet(private val negate: Boolean) : KetexFragment {
 }
 
 /**
- * Append a set of characters (`[abcedfu]`) to the regex.
+ * Create a character set (`[abcedfu]`) to the regex.
  *
  * > Match any character in the set.
  *
@@ -23,4 +23,4 @@ class KetexSet(private val negate: Boolean) : KetexFragment {
  */
 context(KetexBuilder)
 @KetexMarker
-fun set(negate: Boolean = false, block: KetexSet.() -> Unit) = KetexSet(negate).apply(block).build()
+fun set(negate: Boolean = false, block: KetexSet.() -> Unit) = KetexSet(negate).apply(block)

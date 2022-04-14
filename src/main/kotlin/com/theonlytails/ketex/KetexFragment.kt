@@ -11,16 +11,41 @@ interface KetexFragment {
      * @see add
      */
     @KetexMarker
-    operator fun String.unaryPlus() = add(this)
+    operator fun CharSequence.unaryPlus() = add(this)
 
     /**
-     * Append a string of characters to match in the regex.
-     * This function escapes the string before appending it to the regex, so it cannot add metacharacters.
+     * Append a single character to match in the regex.
+     * This function escapes the char before appending it to the regex, so it cannot add metacharacters.
+     *
+     * @see add
+     */
+    @KetexMarker
+    operator fun Char.unaryPlus() = add("$this")
+
+    /**
+     * Append a custom regex token to match in the regex.
+     * DOES NOT escape metacharacters.
      *
      * @see add
      */
     @KetexMarker
     operator fun KetexToken.unaryPlus() = this@KetexFragment.add(this)
+
+    /**
+     * Append a character set to match in the regex.
+     *
+     * @see add
+     */
+    @KetexMarker
+    operator fun KetexSet.unaryPlus() = this@KetexFragment.add(this)
+
+    /**
+     * Append a regex group to the regex.
+     *
+     * @see add
+     */
+    @KetexMarker
+    operator fun KetexGroup.unaryPlus() = this@KetexFragment.add(this)
 
     /**
      * Append a raw string of characters to the regex.

@@ -34,4 +34,4 @@ class KetexGroup(private val type: KetexGroupType) : KetexFragment {
 context(KetexBuilder)
 @KetexMarker
 fun group(type: KetexGroupType = KetexGroupType.Capture, block: KetexGroup.() -> Unit) =
-    KetexGroup(type).apply(block).build()
+    KetexGroup(type).apply(block)
