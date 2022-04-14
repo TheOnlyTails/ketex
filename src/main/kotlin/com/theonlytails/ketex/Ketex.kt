@@ -8,7 +8,7 @@ typealias KetexToken = () -> CharSequence
 annotation class KetexMarker
 
 @KetexMarker
-class KetexBuilder : KetexFragment {
+class KetexBuilder : KetexFragment() {
     @KetexMarker
     fun toRegex(vararg flags: RegexOption) = toString().toRegex(flags.toSet())
 

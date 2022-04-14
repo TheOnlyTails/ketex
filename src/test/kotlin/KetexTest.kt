@@ -5,14 +5,17 @@ import kotlin.test.assertTrue
 
 class KetexTest {
     @Test
-    fun start() {
+    fun `start true`() {
         assertTrue {
             regex {
                 +start
                 +"b"
             }.containsMatchIn("begins with the letter 'b'")
         }
+    }
 
+    @Test
+    fun `start false`() {
         assertFalse {
             regex {
                 +start
@@ -22,14 +25,17 @@ class KetexTest {
     }
 
     @Test
-    fun end() {
+    fun `end true`() {
         assertTrue {
             regex {
                 +"a"
                 +end
             }.containsMatchIn("ends with the letter a")
         }
+    }
 
+    @Test
+    fun `end false`() {
         assertFalse {
             regex {
                 +"a"

@@ -1,8 +1,7 @@
 package com.theonlytails.ketex
 
-interface KetexFragment {
-    val tokens: MutableList<KetexToken>
-        get() = mutableListOf()
+abstract class KetexFragment {
+    val tokens = mutableListOf<KetexToken>()
 
     /**
      * Append a string of characters to match in the regex.
@@ -54,7 +53,7 @@ interface KetexFragment {
      * @see unaryPlus
      */
     @KetexMarker
-    fun add(str: CharSequence, escape: Boolean = true) = this.apply {
+    fun add(str: CharSequence, escape: Boolean = true) {
         tokens += { if (escape) str.escape() else str }
     }
 

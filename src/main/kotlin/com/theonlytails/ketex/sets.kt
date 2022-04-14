@@ -1,7 +1,7 @@
 package com.theonlytails.ketex
 
 @KetexMarker
-class KetexSet(private val negate: Boolean) : KetexFragment {
+class KetexSet(private val negate: Boolean) : KetexFragment() {
     @KetexMarker
     operator fun CharRange.unaryPlus() = add { "$first-$last" }
 
@@ -23,4 +23,4 @@ class KetexSet(private val negate: Boolean) : KetexFragment {
  */
 context(KetexBuilder)
 @KetexMarker
-fun set(negate: Boolean = false, block: KetexSet.() -> Unit) = KetexSet(negate).apply(block)
+inline fun set(negate: Boolean = false, block: KetexSet.() -> Unit) = KetexSet(negate).apply(block)

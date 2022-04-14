@@ -8,7 +8,7 @@ package com.theonlytails.ketex
  */
 context(KetexBuilder)
 @KetexMarker
-val start: KetexToken
+inline val start: KetexToken
     get() = { "^" }
 
 /**
@@ -19,7 +19,7 @@ val start: KetexToken
  */
 context(KetexBuilder)
 @KetexMarker
-val end: KetexToken
+inline val end: KetexToken
     get() = { "$" }
 
 /**
@@ -30,5 +30,5 @@ val end: KetexToken
  */
 context(KetexBuilder)
 @KetexMarker
-val wordBoundary: KetexToken
+inline val wordBoundary: KetexToken
     get() = { """\b""" }
