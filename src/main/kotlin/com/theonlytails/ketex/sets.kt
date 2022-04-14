@@ -1,34 +1,14 @@
 package com.theonlytails.ketex
 
 @KetexMarker
-class KetexSet(private val negate: Boolean) {
-    private val tokens = mutableListOf<KetexToken>()
-
-    @KetexMarker
-    operator fun KetexToken.unaryPlus() = this@KetexSet.add(this)
-
-    @KetexMarker
-    operator fun unaryPlus() = add(this)
-
+class KetexSet(private val negate: Boolean) : KetexFragment {
     @KetexMarker
     operator fun CharRange.unaryPlus() = add { "$first-$last" }
-
-    @KetexMarker
-    operator fun Char.unaryPlus() = add { "$this" }
 
     @KetexMarker
     fun intersect(other: KetexSet) = add { "&&" + other.build() }
 
     @KetexMarker
-    private fun add(token: KetexToken) {
-        tokens += token
-    }
-
-    @KetexMarker
-    private fun add(token: KetexSet) {
-        tokens += token.build()
-    }
-
     internal fun build(): KetexToken = {
         "[" + (if (negate) "^" else "") + tokens.joinToString("") { it() } + "]"
     }
