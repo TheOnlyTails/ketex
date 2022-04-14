@@ -5,7 +5,7 @@ import com.theonlytails.ketex.KetexGroup.KetexGroupType
 @KetexMarker
 class KetexGroup(private val type: KetexGroupType) : KetexFragment() {
     @KetexMarker
-    internal fun build(): KetexToken = {
+    override fun build(): KetexToken = {
         "(" + type.sign + tokens.joinToString("") { it() } + ")"
     }
 

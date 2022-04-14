@@ -73,7 +73,13 @@ abstract class KetexFragment {
     }
 
     @KetexMarker
-    fun CharSequence.escape(): CharSequence {
+    internal abstract fun build(): KetexToken
+
+    @KetexMarker
+    override fun toString() = "" + build()()
+
+    @KetexMarker
+    internal fun CharSequence.escape(): CharSequence {
         val reservedChars = listOf('.', '(', ')', '[', ']', '{', '}', '*', '+', '?', '^', '$', '/', '\\', '-', '|')
         return this.map { if (it in reservedChars) """\$it""" else it }.joinToString("")
     }

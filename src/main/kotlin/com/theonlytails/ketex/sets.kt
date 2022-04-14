@@ -6,10 +6,10 @@ class KetexSet(private val negate: Boolean) : KetexFragment() {
     operator fun CharRange.unaryPlus() = add { "$first-$last" }
 
     @KetexMarker
-    fun intersect(other: KetexSet) = add { "&&" + other.build() }
+    infix fun intersect(other: KetexSet) = add { "&&" + other.build() }
 
     @KetexMarker
-    internal fun build(): KetexToken = {
+    override fun build(): KetexToken = {
         "[" + (if (negate) "^" else "") + tokens.joinToString("") { it() } + "]"
     }
 }
