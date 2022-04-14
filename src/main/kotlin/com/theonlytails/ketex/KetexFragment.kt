@@ -1,7 +1,7 @@
 package com.theonlytails.ketex
 
 abstract class KetexFragment {
-    val tokens = mutableListOf<KetexToken>()
+    private val tokens = mutableListOf<KetexToken>()
 
     /**
      * Append a string of characters to match in the regex.
@@ -64,19 +64,19 @@ abstract class KetexFragment {
 
     @KetexMarker
     fun add(set: KetexSet) {
-        tokens += set.build()
+        tokens += set.build(tokens)
     }
 
     @KetexMarker
     fun add(group: KetexGroup) {
-        tokens += group.build()
+        tokens += group.build(tokens)
     }
 
     @KetexMarker
-    internal abstract fun build(): KetexToken
+    internal abstract fun build(tokens: MutableList<KetexToken>): KetexToken
 
     @KetexMarker
-    override fun toString() = "" + build()()
+    override fun toString() = "" + build(tokens)()
 
     @KetexMarker
     internal fun CharSequence.escape(): CharSequence {

@@ -13,7 +13,7 @@ class KetexBuilder : KetexFragment() {
     fun toRegex(vararg flags: RegexOption) = toString().toRegex(flags.toSet())
 
     @KetexMarker
-    override fun build(): KetexToken = { tokens.joinToString("") { it() } }
+    override fun build(tokens: MutableList<KetexToken>): KetexToken = { tokens.joinToString("") { it() } }
 }
 
 @KetexMarker
