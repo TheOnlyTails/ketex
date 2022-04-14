@@ -17,6 +17,9 @@ class KetexSet(private val negate: Boolean) {
     operator fun Char.unaryPlus() = add { "$this" }
 
     @KetexMarker
+    fun intersect(other: KetexSet) = add { "&&" + other.build() }
+
+    @KetexMarker
     private fun add(token: KetexToken) {
         tokens += token
     }
