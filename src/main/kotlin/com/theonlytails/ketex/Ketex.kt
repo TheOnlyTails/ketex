@@ -1,7 +1,7 @@
 package com.theonlytails.ketex
 
 @KetexMarker
-typealias KetexToken = context(KetexBuilder) KetexBuilder.() -> String
+typealias KetexToken = () -> CharSequence
 
 @DslMarker
 @Target(AnnotationTarget.FUNCTION, AnnotationTarget.CLASS, AnnotationTarget.PROPERTY, AnnotationTarget.TYPEALIAS)
@@ -36,13 +36,16 @@ class KetexBuilder {
      * @see unaryPlus
      */
     @KetexMarker
-    fun add(str: String, escape: Boolean = true): KetexBuilder {
+    fun add(str: CharSequence, escape: Boolean = true): KetexBuilder {
         regex.append(if (escape) str.escape() else str)
         return this
     }
 
     @KetexMarker
-    internal fun add(str: KetexToken) = add(str(), false)
+    internal fun add(token: KetexToken) = add(token(), false)
+
+    @KetexMarker
+    internal fun add(set: KetexSet) = add(set.build()(), false)
 
     @KetexMarker
     fun toRegex(vararg flags: RegexOption) = toString().toRegex(flags.toSet())
@@ -51,7 +54,7 @@ class KetexBuilder {
     override fun toString() = regex.toString()
 
     @KetexMarker
-    fun String.escape(): String {
+    fun CharSequence.escape(): CharSequence {
         val reservedChars = listOf('.', '(', ')', '[', ']', '{', '}', '*', '+', '?', '^', '$', '/', '\\', '-', '|')
         return this.map { if (it in reservedChars) """\$it""" else it }.joinToString("")
     }
@@ -67,3 +70,8 @@ inline fun regex(vararg flags: RegexOption, block: KetexBuilder.() -> Unit) =
 @KetexMarker
 inline fun regexAsString(block: KetexBuilder.() -> Unit) =
     buildRegex(block).toString()
+
+context(KetexBuilder)
+@KetexMarker
+val CharSequence.token: KetexToken
+    get() = { this@token }

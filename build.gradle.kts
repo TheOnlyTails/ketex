@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.6.20"
+    id("org.jetbrains.dokka") version "latest.release" // dokka
 }
 
 group = "com.theonlytails"
@@ -20,5 +21,10 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "18"
+    kotlinOptions.freeCompilerArgs = listOf("-Xcontext-receivers")
+}
+
+tasks.dokkaHtml.configure {
+    outputDirectory.set(projectDir.resolve("docs"))
 }
