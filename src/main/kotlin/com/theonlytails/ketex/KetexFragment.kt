@@ -1,7 +1,15 @@
 package com.theonlytails.ketex
 
+@KetexMarker
+fun interface KetexToken {
+    override fun toString(): String
+
+    operator fun invoke() = toString()
+}
+
+@KetexMarker
 abstract class KetexFragment {
-    private val tokens = mutableListOf<KetexToken>()
+    internal val rawOutput = StringBuilder("")
 
     /**
      * Append a string of characters to match in the regex.
@@ -10,7 +18,7 @@ abstract class KetexFragment {
      * @see add
      */
     @KetexMarker
-    operator fun CharSequence.unaryPlus() = add(this)
+    operator fun String.unaryPlus() = add(this)
 
     /**
      * Append a single character to match in the regex.
@@ -20,6 +28,9 @@ abstract class KetexFragment {
      */
     @KetexMarker
     operator fun Char.unaryPlus() = add("$this")
+
+    @KetexMarker
+    open operator fun CharRange.unaryPlus() = add { "[$first-$last]" }
 
     /**
      * Append a custom regex token to match in the regex.
@@ -53,34 +64,39 @@ abstract class KetexFragment {
      * @see unaryPlus
      */
     @KetexMarker
-    fun add(str: CharSequence, escape: Boolean = true) {
-        tokens += { if (escape) str.escape() else str }
+    fun add(str: String, escape: Boolean = true) {
+        rawOutput += KetexToken { if (escape) str.escape() else str }
     }
 
     @KetexMarker
     fun add(token: KetexToken) {
-        tokens += token
+        rawOutput += token
     }
 
     @KetexMarker
     fun add(set: KetexSet) {
-        tokens += set.build(tokens)
+        rawOutput += set.toString()
     }
 
     @KetexMarker
     fun add(group: KetexGroup) {
-        tokens += group.build(tokens)
+        rawOutput += group.toString()
     }
 
     @KetexMarker
-    internal abstract fun build(tokens: MutableList<KetexToken>): KetexToken
+    override fun toString() = rawOutput.toString()
 
     @KetexMarker
-    override fun toString() = "" + build(tokens)()
-
-    @KetexMarker
-    internal fun CharSequence.escape(): CharSequence {
+    internal fun String.escape(): String {
         val reservedChars = listOf('.', '(', ')', '[', ']', '{', '}', '*', '+', '?', '^', '$', '/', '\\', '-', '|')
         return this.map { if (it in reservedChars) """\$it""" else it }.joinToString("")
+    }
+
+    private operator fun StringBuilder.plusAssign(str: CharSequence) {
+        append(str)
+    }
+
+    private operator fun StringBuilder.plusAssign(str: KetexToken) {
+        this += str()
     }
 }
