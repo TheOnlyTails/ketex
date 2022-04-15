@@ -8,7 +8,7 @@
 
 # Ketex
 
- An idiomatic Kotlin DSL for creating regular expressions. 
+An idiomatic Kotlin DSL for creating regular expressions. 
  
 For documentation and usage instructions, please take a look at
 the [docs](https://ketex.theonlytails.com/).
@@ -20,6 +20,8 @@ of this library.
 ## Installation
 
 _Don't forget to replace the VERSION key with the version in the top with the Maven Central badge at the top!_
+
+**WARNING**: this library requires you to enable context receivers, a new experminental feature available in Kotlin/JVM since v1.6.20.
 
 #### Gradle/Kotlin
 ```kotlin
