@@ -9,7 +9,7 @@ import java.lang.Character.UnicodeScript
  * > Equivalent to [^\n\r].
  */
 context(KetexBuilder)
-        @KetexMarker
+@KetexMarker
 val any: KetexToken
     get() = KetexToken { "." }
 
@@ -21,7 +21,7 @@ val any: KetexToken
  * > Equivalent to [A-Za-z0-9_]
  */
 context(KetexBuilder)
-        @KetexMarker
+@KetexMarker
 val word: KetexToken
     get() = KetexToken { """\w""" }
 
@@ -32,7 +32,7 @@ val word: KetexToken
  * > Equivalent to [0-9].
  */
 context(KetexBuilder)
-        @KetexMarker
+@KetexMarker
 val digit: KetexToken
     get() = KetexToken { """\d""" }
 
@@ -42,7 +42,7 @@ val digit: KetexToken
  * > Matches any whitespace character (spaces, tabs, line breaks).
  */
 context(KetexBuilder)
-        @KetexMarker
+@KetexMarker
 val whitespace: KetexToken
     get() = KetexToken { """\s""" }
 
@@ -52,7 +52,7 @@ val whitespace: KetexToken
  * > Matches any Unicode newline sequence.
  */
 context(KetexBuilder)
-        @KetexMarker
+@KetexMarker
 val unicodeNewlines: KetexToken
     get() = KetexToken { """\R""" }
 
@@ -62,7 +62,7 @@ val unicodeNewlines: KetexToken
  * > Matches unicode vertical whitespace.
  */
 context(KetexBuilder)
-        @KetexMarker
+@KetexMarker
 val verticalWhitespace: KetexToken
     get() = KetexToken { """\v""" }
 
@@ -72,7 +72,7 @@ val verticalWhitespace: KetexToken
  * > Matches spaces, tabs, non-breaking/mathematical/ideographic spaces, and so on.
  */
 context(KetexBuilder)
-        @KetexMarker
+@KetexMarker
 val horizontalWhitespace: KetexToken
     get() = KetexToken { """\h""" }
 
@@ -82,7 +82,7 @@ val horizontalWhitespace: KetexToken
  * > This will match a repeat of the text matched and captured by the capture group # (number) specified.
  */
 context(KetexBuilder)
-        @KetexMarker
+@KetexMarker
 val index: (Int) -> KetexToken
     get() = { KetexToken { """\$it""" } }
 
@@ -92,7 +92,7 @@ val index: (Int) -> KetexToken
  * > This will match a repeat of the text matched and captured by the capture group # (number) specified.
  */
 context(KetexBuilder)
-        @KetexMarker
+@KetexMarker
 val category: (UnicodeScript) -> KetexToken
     get() = {
         KetexToken {
