@@ -9,6 +9,7 @@ $dokka.location:com.theonlytails.ketex//category/#/PointingToDeclaration/ketex/
 $dokka.location:com.theonlytails.ketex//count/com.theonlytails.ketex.KetexToken#kotlin.Int/PointingToDeclaration/ketex/com.theonlytails.ketex/count.html
 $dokka.location:com.theonlytails.ketex//digit/#/PointingToDeclaration/ketex/com.theonlytails.ketex/digit.html
 $dokka.location:com.theonlytails.ketex//end/#/PointingToDeclaration/ketex/com.theonlytails.ketex/end.html
+$dokka.location:com.theonlytails.ketex//get/com.theonlytails.ketex.KetexFragment#kotlin.Function1[com.theonlytails.ketex.KetexSet,kotlin.Unit]/PointingToDeclaration/ketex/com.theonlytails.ketex/get.html
 $dokka.location:com.theonlytails.ketex//group/#com.theonlytails.ketex.KetexGroup.KetexGroupType#kotlin.String#kotlin.Function1[com.theonlytails.ketex.KetexGroup,kotlin.Unit]/PointingToDeclaration/ketex/com.theonlytails.ketex/group.html
 $dokka.location:com.theonlytails.ketex//horizontalWhitespace/#/PointingToDeclaration/ketex/com.theonlytails.ketex/horizontal-whitespace.html
 $dokka.location:com.theonlytails.ketex//index/#/PointingToDeclaration/ketex/com.theonlytails.ketex/--index--.html
@@ -61,6 +62,7 @@ $dokka.location:com.theonlytails.ketex/KetexMarker/KetexMarker/#/PointingToDecla
 $dokka.location:com.theonlytails.ketex/KetexSet///PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set/index.html
 $dokka.location:com.theonlytails.ketex/KetexSet/KetexSet/#kotlin.Boolean/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set/-ketex-set.html
 $dokka.location:com.theonlytails.ketex/KetexSet/intersect/#com.theonlytails.ketex.KetexSet/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set/intersect.html
+$dokka.location:com.theonlytails.ketex/KetexSet/not/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set/not.html
 $dokka.location:com.theonlytails.ketex/KetexSet/toString/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set/to-string.html
 $dokka.location:com.theonlytails.ketex/KetexSet/unaryPlus/kotlin.ranges.CharRange#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set/unary-plus.html
 $dokka.location:com.theonlytails.ketex/KetexToken///PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-token/index.html
