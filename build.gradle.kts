@@ -18,7 +18,6 @@ apply(plugin = "com.vanniktech.maven.publish.base")
 plugins {
     kotlin("jvm") version "1.6.20"
     id("org.jetbrains.dokka") version "latest.release" // dokka
-//    `maven-publish`
     `java-library`
     idea
 }

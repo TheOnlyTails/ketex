@@ -114,10 +114,10 @@ class KetexTest {
     fun `negated range`() {
         assertEquals("[^3-5][^a-z]",
             regexAsString {
-                +set(true) {
+                +!set {
                     +('3'..'5')
                 }
-                +set(true) {
+                +!set {
                     +('a'..'z')
                 }
             }
@@ -219,11 +219,11 @@ class KetexTest {
     fun `negated set`() {
         assertEquals("[^abcd][^abcd]{5}",
             regexAsString {
-                +set(true) {
+                +!set {
                     +"abcd"
                 }
 
-                +(set(true) {
+                +(!set {
                     +"abcd"
                 } count 5)
             }

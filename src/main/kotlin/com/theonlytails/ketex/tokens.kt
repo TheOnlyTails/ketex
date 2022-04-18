@@ -10,8 +10,7 @@ import java.lang.Character.UnicodeScript
  */
 context(KetexBuilder)
 @KetexMarker
-val any: KetexToken
-    get() = KetexToken { "." }
+val any by token(".")
 
 /**
  * Append a word token (`\w`) to the regex.
@@ -22,8 +21,7 @@ val any: KetexToken
  */
 context(KetexBuilder)
 @KetexMarker
-val word: KetexToken
-    get() = KetexToken { """\w""" }
+val word by token("\\w")
 
 /**
  * Append a digit token (`\d`) to the regex.
@@ -33,8 +31,7 @@ val word: KetexToken
  */
 context(KetexBuilder)
 @KetexMarker
-val digit: KetexToken
-    get() = KetexToken { """\d""" }
+val digit by token("\\d")
 
 /**
  * Append a whitespace token (`\s`) to the regex.
@@ -43,8 +40,7 @@ val digit: KetexToken
  */
 context(KetexBuilder)
 @KetexMarker
-val whitespace: KetexToken
-    get() = KetexToken { """\s""" }
+val whitespace by token("\\s")
 
 /**
  * Append a unicode newlines token (`\R`) to the regex.
@@ -53,8 +49,7 @@ val whitespace: KetexToken
  */
 context(KetexBuilder)
 @KetexMarker
-val unicodeNewlines: KetexToken
-    get() = KetexToken { """\R""" }
+val unicodeNewlines by token("\\R")
 
 /**
  * Append a vertical whitespace token (`\v`) to the regex.
@@ -63,8 +58,7 @@ val unicodeNewlines: KetexToken
  */
 context(KetexBuilder)
 @KetexMarker
-val verticalWhitespace: KetexToken
-    get() = KetexToken { """\v""" }
+val verticalWhitespace by token("\\v")
 
 /**
  * Append a horizontal whitespace token (`\h`) to the regex.
@@ -73,8 +67,7 @@ val verticalWhitespace: KetexToken
  */
 context(KetexBuilder)
 @KetexMarker
-val horizontalWhitespace: KetexToken
-    get() = KetexToken { """\h""" }
+val horizontalWhitespace by token("\\h")
 
 /**
  * Append a subpattern/backreference token (`\#`) to the regex.
@@ -84,7 +77,7 @@ val horizontalWhitespace: KetexToken
 context(KetexBuilder)
 @KetexMarker
 val index: (Int) -> KetexToken
-    get() = { KetexToken { """\$it""" } }
+    get() = { """\$it""".token }
 
 /**
  * Append a subpattern/backreference token (`\#`) to the regex.
@@ -94,12 +87,10 @@ val index: (Int) -> KetexToken
 context(KetexBuilder)
 @KetexMarker
 val category: (UnicodeScript) -> KetexToken
-    get() = {
-        KetexToken {
-            val script = it.name.split("_").joinToString("_") {
-                it.first().uppercase() + it.substring(1).lowercase()
-            }
-
-            """\p{In$script}"""
+    get() = { script ->
+        val formattedScript = script.name.split("_").joinToString("_") {
+            it.first().uppercase() + it.substring(1).lowercase()
         }
+
+        """\p{In$formattedScript}""".token
     }

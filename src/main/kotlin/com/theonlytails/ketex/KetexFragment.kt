@@ -1,10 +1,18 @@
 package com.theonlytails.ketex
 
+import kotlin.properties.ReadOnlyProperty
+import kotlin.reflect.KProperty
+
 @KetexMarker
 fun interface KetexToken {
     override fun toString(): String
 
     operator fun invoke() = toString()
+}
+
+@KetexMarker
+internal fun token(str: String) = ReadOnlyProperty { _: Any?, _: KProperty<*> ->
+    KetexToken { str }
 }
 
 @KetexMarker
