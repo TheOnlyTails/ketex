@@ -2,13 +2,26 @@ package com.theonlytails.ketex
 
 import java.lang.Character.UnicodeScript
 
+context(KetexFragment)
+@KetexMarker
+operator fun KetexToken.not() = with(this()) {
+    KetexToken {
+        if (startsWith("\\")) {
+            first() + get(1).uppercase() + substring(2)
+        } else {
+            System.err.println("Warning: Cannot invert a token which doesn't being with \\: $this")
+            "" // only tokens with a backslash are invertable
+        }
+    }
+}
+
 /**
  * Append an "any character" token (`.`) to the regex.
  *
  * > Matches any character except linebreaks.
  * > Equivalent to [^\n\r].
  */
-context(KetexBuilder)
+context(KetexFragment)
 @KetexMarker
 val any by token(".")
 
@@ -19,7 +32,7 @@ val any by token(".")
  * > Only matches low-ascii characters (no accented or non-roman characters).
  * > Equivalent to [A-Za-z0-9_]
  */
-context(KetexBuilder)
+context(KetexFragment)
 @KetexMarker
 val word by token("\\w")
 
@@ -29,7 +42,7 @@ val word by token("\\w")
  * > Matches any digit character (0-9).
  * > Equivalent to [0-9].
  */
-context(KetexBuilder)
+context(KetexFragment)
 @KetexMarker
 val digit by token("\\d")
 
@@ -38,7 +51,7 @@ val digit by token("\\d")
  *
  * > Matches any whitespace character (spaces, tabs, line breaks).
  */
-context(KetexBuilder)
+context(KetexFragment)
 @KetexMarker
 val whitespace by token("\\s")
 
@@ -47,7 +60,7 @@ val whitespace by token("\\s")
  *
  * > Matches any Unicode newline sequence.
  */
-context(KetexBuilder)
+context(KetexFragment)
 @KetexMarker
 val unicodeNewlines by token("\\R")
 
@@ -56,7 +69,7 @@ val unicodeNewlines by token("\\R")
  *
  * > Matches unicode vertical whitespace.
  */
-context(KetexBuilder)
+context(KetexFragment)
 @KetexMarker
 val verticalWhitespace by token("\\v")
 
@@ -65,7 +78,7 @@ val verticalWhitespace by token("\\v")
  *
  * > Matches spaces, tabs, non-breaking/mathematical/ideographic spaces, and so on.
  */
-context(KetexBuilder)
+context(KetexFragment)
 @KetexMarker
 val horizontalWhitespace by token("\\h")
 
@@ -74,7 +87,7 @@ val horizontalWhitespace by token("\\h")
  *
  * > This will match a repeat of the text matched and captured by the capture group # (number) specified.
  */
-context(KetexBuilder)
+context(KetexFragment)
 @KetexMarker
 val index: (Int) -> KetexToken
     get() = { """\$it""".token }
@@ -84,7 +97,7 @@ val index: (Int) -> KetexToken
  *
  * > This will match a repeat of the text matched and captured by the capture group # (number) specified.
  */
-context(KetexBuilder)
+context(KetexFragment)
 @KetexMarker
 val category: (UnicodeScript) -> KetexToken
     get() = { script ->

@@ -1,6 +1,7 @@
 import com.theonlytails.ketex.*
 import com.theonlytails.ketex.KetexGroup.KetexGroupType
 import org.junit.jupiter.api.Test
+import java.lang.Character.UnicodeScript
 import kotlin.test.assertEquals
 
 // these tests are blatantly copied from the awesome Melody project:
@@ -249,6 +250,29 @@ class KetexTest {
                 +("A".token count 5).lazy()
                 +("A".token atLeast 6).lazy()
                 +("A".token between 5..6).lazy()
+            }
+        )
+    }
+
+    @Test
+    fun `inverted tokens`() {
+        assertEquals("""\w\W\p{InHebrew}\P{InHebrew}""",
+            regexAsString {
+                +word
+                +!word
+                +category(UnicodeScript.HEBREW)
+                +!category(UnicodeScript.HEBREW)
+            }
+        )
+    }
+
+    @Test
+    fun `category token`() {
+        assertEquals("""\p{InHebrew}\p{InArmenian}\p{InArabic}""",
+            regexAsString {
+                +category(UnicodeScript.HEBREW)
+                +category(UnicodeScript.ARMENIAN)
+                +category(UnicodeScript.ARABIC)
             }
         )
     }
