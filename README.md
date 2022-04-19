@@ -1,4 +1,4 @@
-[![Maven metadata URL](https://img.shields.io/maven-central/v/com.theonlytails/ketex?color=blue&style=for-the-badge)](https://search.maven.org/artifact/com.theonlytails/lootgoblin)
+[![Maven metadata URL](https://img.shields.io/maven-central/v/com.theonlytails/ketex?color=blue&style=for-the-badge)](https://search.maven.org/artifact/com.theonlytails/ketex)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TheOnlyTails/ketex/Java%20CI%20with%20Gradle?label=gradle%20build&logo=github&style=for-the-badge)
 ![Kotlin](https://img.shields.io/badge/kotlin-%238052ff.svg?style=for-the-badge&logo=kotlin&logoColor=white)
 ![Gradle](https://img.shields.io/badge/gradle-%2302303A.svg?style=for-the-badge&logo=gradle&logoColor=white)
