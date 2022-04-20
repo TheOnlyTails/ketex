@@ -33,6 +33,34 @@ context(KetexFragment)
 val any by token(".")
 
 /**
+ * Append a newline character token (`\n`) to the regex.
+ *
+ * > Matches a newline character.
+ */
+context(KetexFragment)
+@KetexMarker
+val newline by token("\\n")
+
+/**
+ * Append a carriage return token (`\r`) to the regex.
+ *
+ * > Matches a carriage return, unicode character U+2185.
+ */
+context(KetexFragment)
+@KetexMarker
+val carriageReturn by token("\\r")
+
+/**
+ * Append a tab character token (`\t`) to the regex.
+ *
+ * > Matches a tab character.
+ * > Historically, tab stops happen every 8 characters.
+ */
+context(KetexFragment)
+@KetexMarker
+val tab by token("\\t")
+
+/**
  * Append a word token (`\w`) to the regex.
  *
  * > Matches any word character (alphanumeric & underscore).

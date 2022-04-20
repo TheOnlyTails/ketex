@@ -276,4 +276,15 @@ class KetexTest {
             }
         )
     }
+
+    @Test
+    fun `general tokens (whitespace)`() {
+        assertEquals("""\n\r\t""",
+            regexAsString {
+                +newline
+                +carriageReturn
+                +tab
+            }
+        )
+    }
 }
