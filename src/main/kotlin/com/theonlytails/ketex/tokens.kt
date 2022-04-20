@@ -5,12 +5,19 @@ import java.lang.Character.UnicodeScript
 context(KetexFragment)
 @KetexMarker
 operator fun KetexToken.not() = with(this()) {
+    val singleCharRegex = regex {
+        +start
+        +word
+        +end
+    }
+
     KetexToken {
-        if (startsWith("\\")) {
+        if (startsWith("\\") && singleCharRegex matches get(1).toString()) {
             first() + get(1).uppercase() + substring(2)
         } else {
-            System.err.println("Warning: Cannot invert a token which doesn't being with \\: $this")
-            "" // only tokens with a backslash are invertable
+            // only tokens with a backslash are invertible
+            System.err.println("Warning: Cannot invert a token which doesn't being with \\ and has a single character: $this")
+            ""
         }
     }
 }
