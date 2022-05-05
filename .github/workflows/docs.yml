@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout LootGoblin
+      - name: Checkout Ketex
         uses: actions/checkout@v2
 
       - name: Set up JDK 18
@@ -20,6 +20,9 @@ jobs:
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+        
+      - name: pull
+        run: git pull
 
       - name: Generate Documentation
         run: ./gradlew dokkaHtml
