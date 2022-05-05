@@ -4,14 +4,11 @@
 ![Gradle](https://img.shields.io/badge/gradle-%2302303A.svg?style=for-the-badge&logo=gradle&logoColor=white)
 ![GitHub License](https://img.shields.io/github/license/theonlytails/ketex?style=for-the-badge&logo=key)
 
----
-
 # Ketex
 
 An idiomatic Kotlin DSL for creating regular expressions. 
  
-For documentation and usage instructions, please take a look at
-the [docs](https://ketex.theonlytails.com/).
+Take a look at the [API docs](https://ketex.theonlytails.com/) and the [wiki](https://github.com/theonlytails/ketex/wiki).
 
 Here's
 the [`maven-metadata.xml`](https://s01.oss.sonatype.org/service/local/repositories/releases/content/com/theonlytails/ketex/maven-metadata.xml)
