@@ -128,6 +128,17 @@ val index: (Int) -> KetexToken
     get() = { """\$it""".token }
 
 /**
+ * Append a named subpattern token (`\k{name}`) to the regex.
+ *
+ * > Matches the same text a capture group called `name` matched and captured
+ */
+context(KetexFragment)
+@KetexMarker
+val name: (String) -> KetexToken
+    get() = { """\k{$it}""".token }
+
+
+/**
  * Append a subpattern/backreference token (`\#`) to the regex.
  *
  * > This will match a repeat of the text matched and captured by the capture group # (number) specified.

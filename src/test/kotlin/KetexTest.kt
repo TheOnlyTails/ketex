@@ -279,11 +279,40 @@ class KetexTest {
 
     @Test
     fun `general tokens (whitespace)`() {
-        assertEquals("""\n\r\t""",
+        assertEquals("""\n\     +category(UnicodeScript.ARMENIAN)
+                +category(UnicodeScript.ARABIC)
+            }r\t""",
             regexAsString {
                 +newline
                 +carriageReturn
                 +tab
+            }
+        )
+    }
+
+    @Test
+    fun `parameterized tokens`() {
+        assertEquals("""\p{InHebrew}{5}""",
+            regexAsString {
+                +(category(UnicodeScript.HEBREW) count 5)
+            }
+        )
+
+        assertEquals("""(?<anychar>.)\k{anychar}""",
+            regexAsString {
+                +group(name = "anychar") {
+                    +any
+                }
+                +name("anychar")
+            }
+        )
+
+        assertEquals("""(.)\1""",
+            regexAsString {
+                +group {
+                    +any
+                }
+                +index(1)
             }
         )
     }
