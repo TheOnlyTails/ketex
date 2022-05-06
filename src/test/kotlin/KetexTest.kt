@@ -279,9 +279,7 @@ class KetexTest {
 
     @Test
     fun `general tokens (whitespace)`() {
-        assertEquals("""\n\     +category(UnicodeScript.ARMENIAN)
-                +category(UnicodeScript.ARABIC)
-            }r\t""",
+        assertEquals("""\n\r\t""",
             regexAsString {
                 +newline
                 +carriageReturn
