@@ -16,14 +16,14 @@ buildscript {
 apply(plugin = "com.vanniktech.maven.publish.base")
 
 plugins {
-    kotlin("jvm") version "1.6.20"
+    kotlin("jvm") version "1.6.21"
     id("org.jetbrains.dokka") version "latest.release" // dokka
     `java-library`
     idea
 }
 
 val groupId = "com.theonlytails"
-val libVersion = "0.1.3"
+val libVersion = "0.1.4"
 
 group = groupId
 version = libVersion

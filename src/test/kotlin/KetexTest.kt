@@ -287,4 +287,31 @@ class KetexTest {
             }
         )
     }
+
+    @Test
+    fun `parameterized tokens`() {
+        assertEquals("""\p{InHebrew}{5}""",
+            regexAsString {
+                +(category(UnicodeScript.HEBREW) count 5)
+            }
+        )
+
+        assertEquals("""(?<anychar>.)\k{anychar}""",
+            regexAsString {
+                +group(name = "anychar") {
+                    +any
+                }
+                +name("anychar")
+            }
+        )
+
+        assertEquals("""(.)\1""",
+            regexAsString {
+                +group {
+                    +any
+                }
+                +index(1)
+            }
+        )
+    }
 }
