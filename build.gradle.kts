@@ -23,7 +23,7 @@ plugins {
 }
 
 val groupId = "com.theonlytails"
-val libVersion = "0.1.4"
+val libVersion = "0.1.5"
 
 group = groupId
 version = libVersion

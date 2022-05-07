@@ -26,6 +26,33 @@ class KetexSet(private var negate: Boolean) : KetexFragment(), KetexToken {
     }
 }
 
+@KetexMarker
+class KetexSetGetOperator {
+    context(KetexFragment)
+    @KetexMarker
+    operator fun get(vararg tokens: String) = set {
+        tokens.forEach { +it }
+    }
+
+    context(KetexFragment)
+    @KetexMarker
+    operator fun get(vararg tokens: Char) = set {
+        tokens.forEach { +it }
+    }
+
+    context(KetexFragment)
+    @KetexMarker
+    operator fun get(vararg tokens: CharRange) = set {
+        tokens.forEach { +it }
+    }
+
+    context(KetexFragment)
+    @KetexMarker
+    operator fun get(vararg tokens: KetexToken) = set {
+        tokens.forEach { +it }
+    }
+}
+
 /**
  * Create a character set (`[abcedfu]`) to the regex.
  *
@@ -37,3 +64,18 @@ class KetexSet(private var negate: Boolean) : KetexFragment(), KetexToken {
 context(KetexFragment)
 @KetexMarker
 inline fun set(negate: Boolean = false, block: KetexSet.() -> Unit) = KetexSet(negate).apply(block)
+
+/**
+ * Use this to create a set with the [KetexSetGetOperator.get] operator.
+ *
+ * ```kt
+ * regex {
+ *   +set["a", "b", "c"]
+ *   +set['a'..'z', 'A'..'Z', '0'..'9']
+ *   +set[word, whitespace]
+ * }
+ * ```
+ */
+context(KetexFragment)
+@KetexMarker
+val set by lazy { KetexSetGetOperator() }

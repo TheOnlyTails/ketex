@@ -314,4 +314,15 @@ class KetexTest {
             }
         )
     }
+
+    @Test
+    fun `set with operator`() {
+        assertEquals("""[abc][a-zA-Z0-9][\w\s]""",
+            regexAsString {
+                +set["a", "b", "c"]
+                +set['a'..'z', 'A'..'Z', '0'..'9']
+                +set[word, whitespace]
+            }
+        )
+    }
 }
