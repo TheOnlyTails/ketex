@@ -22,6 +22,7 @@ $dokka.location:com.theonlytails.ketex//option/com.theonlytails.ketex.KetexToken
 $dokka.location:com.theonlytails.ketex//or/com.theonlytails.ketex.KetexToken#com.theonlytails.ketex.KetexToken/PointingToDeclaration/ketex/com.theonlytails.ketex/or.html
 $dokka.location:com.theonlytails.ketex//regex/#kotlin.Array[kotlin.text.RegexOption]#kotlin.Function1[com.theonlytails.ketex.KetexBuilder,kotlin.Unit]/PointingToDeclaration/ketex/com.theonlytails.ketex/regex.html
 $dokka.location:com.theonlytails.ketex//regexAsString/#kotlin.Function1[com.theonlytails.ketex.KetexBuilder,kotlin.Unit]/PointingToDeclaration/ketex/com.theonlytails.ketex/regex-as-string.html
+$dokka.location:com.theonlytails.ketex//set/#/PointingToDeclaration/ketex/com.theonlytails.ketex/set.html
 $dokka.location:com.theonlytails.ketex//set/#kotlin.Boolean#kotlin.Function1[com.theonlytails.ketex.KetexSet,kotlin.Unit]/PointingToDeclaration/ketex/com.theonlytails.ketex/set.html
 $dokka.location:com.theonlytails.ketex//some/com.theonlytails.ketex.KetexToken#/PointingToDeclaration/ketex/com.theonlytails.ketex/some.html
 $dokka.location:com.theonlytails.ketex//start/#/PointingToDeclaration/ketex/com.theonlytails.ketex/start.html
@@ -69,6 +70,12 @@ $dokka.location:com.theonlytails.ketex/KetexSet/intersect/#com.theonlytails.kete
 $dokka.location:com.theonlytails.ketex/KetexSet/not/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set/not.html
 $dokka.location:com.theonlytails.ketex/KetexSet/toString/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set/to-string.html
 $dokka.location:com.theonlytails.ketex/KetexSet/unaryPlus/kotlin.ranges.CharRange#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set/unary-plus.html
+$dokka.location:com.theonlytails.ketex/KetexSetGetOperator///PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set-get-operator/index.html
+$dokka.location:com.theonlytails.ketex/KetexSetGetOperator/KetexSetGetOperator/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set-get-operator/-ketex-set-get-operator.html
+$dokka.location:com.theonlytails.ketex/KetexSetGetOperator/get/#kotlin.Array[com.theonlytails.ketex.KetexToken]/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set-get-operator/get.html
+$dokka.location:com.theonlytails.ketex/KetexSetGetOperator/get/#kotlin.Array[kotlin.String]/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set-get-operator/get.html
+$dokka.location:com.theonlytails.ketex/KetexSetGetOperator/get/#kotlin.Array[kotlin.ranges.CharRange]/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set-get-operator/get.html
+$dokka.location:com.theonlytails.ketex/KetexSetGetOperator/get/#kotlin.CharArray/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set-get-operator/get.html
 $dokka.location:com.theonlytails.ketex/KetexToken///PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-token/index.html
 $dokka.location:com.theonlytails.ketex/KetexToken/invoke/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-token/invoke.html
 $dokka.location:com.theonlytails.ketex/KetexToken/toString/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-token/to-string.html
