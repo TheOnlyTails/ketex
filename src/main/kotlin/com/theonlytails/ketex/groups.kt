@@ -78,9 +78,33 @@ class KetexGroup(private val type: KetexGroupType, private val name: String) : K
 }
 
 context(KetexFragment)
-        @KetexMarker
-        inline fun group(
+@KetexMarker
+inline fun group(
     type: KetexGroupType = KetexGroupType.Capture,
     name: String = "",
     block: KetexGroup.() -> Unit,
 ) = KetexGroup(type, name).apply(block)
+
+context(KetexFragment)
+@KetexMarker
+fun group(vararg tokens: String) = group {
+    tokens.forEach { +it }
+}
+
+context(KetexFragment)
+@KetexMarker
+fun group(vararg tokens: Char) = group {
+    tokens.forEach { +it }
+}
+
+context(KetexFragment)
+@KetexMarker
+fun group(vararg tokens: CharRange) = group {
+    tokens.forEach { +it }
+}
+
+context(KetexFragment)
+@KetexMarker
+fun group(vararg tokens: KetexToken) = group {
+    tokens.forEach { +it }
+}

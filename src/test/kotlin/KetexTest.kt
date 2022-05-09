@@ -325,4 +325,13 @@ class KetexTest {
             }
         )
     }
+
+    @Test
+    fun `group with vararg`() {
+        assertEquals("""(abc)""",
+            regexAsString {
+                +group("abc")
+            }
+        )
+    }
 }
