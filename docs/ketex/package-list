@@ -11,6 +11,10 @@ $dokka.location:com.theonlytails.ketex//count/com.theonlytails.ketex.KetexToken#
 $dokka.location:com.theonlytails.ketex//digit/#/PointingToDeclaration/ketex/com.theonlytails.ketex/digit.html
 $dokka.location:com.theonlytails.ketex//end/#/PointingToDeclaration/ketex/com.theonlytails.ketex/end.html
 $dokka.location:com.theonlytails.ketex//group/#com.theonlytails.ketex.KetexGroup.KetexGroupType#kotlin.String#kotlin.Function1[com.theonlytails.ketex.KetexGroup,kotlin.Unit]/PointingToDeclaration/ketex/com.theonlytails.ketex/group.html
+$dokka.location:com.theonlytails.ketex//group/#kotlin.Array[com.theonlytails.ketex.KetexToken]/PointingToDeclaration/ketex/com.theonlytails.ketex/group.html
+$dokka.location:com.theonlytails.ketex//group/#kotlin.Array[kotlin.String]/PointingToDeclaration/ketex/com.theonlytails.ketex/group.html
+$dokka.location:com.theonlytails.ketex//group/#kotlin.Array[kotlin.ranges.CharRange]/PointingToDeclaration/ketex/com.theonlytails.ketex/group.html
+$dokka.location:com.theonlytails.ketex//group/#kotlin.CharArray/PointingToDeclaration/ketex/com.theonlytails.ketex/group.html
 $dokka.location:com.theonlytails.ketex//horizontalWhitespace/#/PointingToDeclaration/ketex/com.theonlytails.ketex/horizontal-whitespace.html
 $dokka.location:com.theonlytails.ketex//index/#/PointingToDeclaration/ketex/com.theonlytails.ketex/--index--.html
 $dokka.location:com.theonlytails.ketex//lazy/com.theonlytails.ketex.KetexToken#/PointingToDeclaration/ketex/com.theonlytails.ketex/lazy.html
