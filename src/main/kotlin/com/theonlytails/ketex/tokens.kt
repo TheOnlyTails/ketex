@@ -305,4 +305,4 @@ fun property(block: UnicodeBlock): KetexToken {
  */
 context(KetexFragment)
 @KetexMarker
-fun property(category: CharacterCategory) = """\p{${category.id}""".token
+fun property(category: CharacterCategory) = """\p{${category.id}}""".token
