@@ -257,7 +257,7 @@ class KetexTest {
 
     @Test
     fun `inverted tokens`() {
-        assertEquals("""\w\W\p{IsHebrew}\p{IsHebrew}""",
+        assertEquals("""\w\W\p{IsHebrew}\P{IsHebrew}""",
             regexAsString {
                 +word
                 +!word
