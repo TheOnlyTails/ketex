@@ -1,6 +1,7 @@
 import com.theonlytails.ketex.*
 import com.theonlytails.ketex.KetexGroup.KetexGroupType
 import org.junit.jupiter.api.Test
+import java.lang.Character.UnicodeBlock
 import java.lang.Character.UnicodeScript
 import kotlin.test.assertEquals
 
@@ -256,23 +257,23 @@ class KetexTest {
 
     @Test
     fun `inverted tokens`() {
-        assertEquals("""\w\W\p{InHebrew}\P{InHebrew}""",
+        assertEquals("""\w\W\p{IsHebrew}\p{IsHebrew}""",
             regexAsString {
                 +word
                 +!word
-                +category(UnicodeScript.HEBREW)
-                +!category(UnicodeScript.HEBREW)
+                +property(UnicodeScript.HEBREW)
+                +!property(UnicodeScript.HEBREW)
             }
         )
     }
 
     @Test
-    fun `category token`() {
-        assertEquals("""\p{InHebrew}\p{InArmenian}\p{InArabic}""",
+    fun `property token`() {
+        assertEquals("""\p{IsHebrew}\p{IsArmenian}\p{IsArabic}""",
             regexAsString {
-                +category(UnicodeScript.HEBREW)
-                +category(UnicodeScript.ARMENIAN)
-                +category(UnicodeScript.ARABIC)
+                +property(UnicodeScript.HEBREW)
+                +property(UnicodeScript.ARMENIAN)
+                +property(UnicodeScript.ARABIC)
             }
         )
     }
@@ -290,18 +291,11 @@ class KetexTest {
 
     @Test
     fun `parameterized tokens`() {
-        assertEquals("""\p{InHebrew}{5}""",
+        assertEquals("""\p{IsHebrew}\p{InAncient_Symbols}\p{Lt}""",
             regexAsString {
-                +(category(UnicodeScript.HEBREW) count 5)
-            }
-        )
-
-        assertEquals("""(?<anychar>.)\k{anychar}""",
-            regexAsString {
-                +group(name = "anychar") {
-                    +any
-                }
-                +name("anychar")
+                +property(UnicodeScript.HEBREW)
+                +property(UnicodeBlock.ANCIENT_SYMBOLS)
+                +property(CharacterCategory.TitlecaseLetter)
             }
         )
 

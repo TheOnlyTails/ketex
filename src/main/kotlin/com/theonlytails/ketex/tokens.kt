@@ -1,6 +1,146 @@
 package com.theonlytails.ketex
 
 import java.lang.Character.UnicodeScript
+import java.lang.Character.UnicodeBlock
+
+@Suppress("unused")
+@KetexMarker
+enum class CharacterCategory(val id: String) {
+    @KetexMarker
+    Unassigned("Cn"),
+
+    @KetexMarker
+    Letter("L"),
+
+    @KetexMarker
+    UppercaseLetter("Lu"),
+
+    @KetexMarker
+    LowercaseLetter("Ll"),
+
+    @KetexMarker
+    TitlecaseLetter("Lt"),
+
+    @KetexMarker
+    ModifierLetter("Lm"),
+
+    @KetexMarker
+    OtherLetter("Lo"),
+
+    @KetexMarker
+    NonSpacingMark("Mn"),
+
+    @KetexMarker
+    EnclosingMark("Me"),
+
+    @KetexMarker
+    CombiningSpacingMark("Mc"),
+
+    @KetexMarker
+    DecimalDigitNumber("Nd"),
+
+    @KetexMarker
+    LetterNumber("Nl"),
+
+    @KetexMarker
+    OtherNumber("No"),
+
+    @KetexMarker
+    SpaceSeparator("Zs"),
+
+    @KetexMarker
+    LineSeparator("Zl"),
+
+    @KetexMarker
+    ParagraphSeparator("Zp"),
+
+    @KetexMarker
+    Control("Cc"),
+
+    @KetexMarker
+    Format("Cf"),
+
+    @KetexMarker
+    PrivateUse("Co"),
+
+    @KetexMarker
+    Surrogate("Cs"),
+
+    @KetexMarker
+    DashPunctuation("Pd"),
+
+    @KetexMarker
+    StartPunctuation("Ps"),
+
+    @KetexMarker
+    EndPunctuation("Pe"),
+
+    @KetexMarker
+    ConnectorPunctuation("Pc"),
+
+    @KetexMarker
+    InitialQuotePunctuation("Pi"),
+
+    @KetexMarker
+    FinalQuotePunctuation("Pf"),
+
+    @KetexMarker
+    OtherPunctuation("Po"),
+
+    @KetexMarker
+    Symbol("S"),
+
+    @KetexMarker
+    MathSymbol("Sm"),
+
+    @KetexMarker
+    CurrencySymbol("Sc"),
+
+    @KetexMarker
+    ModifierSymbol("Sk"),
+
+    @KetexMarker
+    OtherSymbol("So"),
+
+    @KetexMarker
+    Print("Print"),
+
+    @KetexMarker
+    Alnum("Alnum"),
+
+    @KetexMarker
+    Alpha("Alpha"),
+
+    @KetexMarker
+    ASCII("ASCII"),
+
+    @KetexMarker
+    Blank("Blank"),
+
+    @KetexMarker
+    Cntrl("Cntrl"),
+
+    @KetexMarker
+    Digit("Digit"),
+
+    @KetexMarker
+    Graph("Graph"),
+
+    @KetexMarker
+    Lower("Lower"),
+
+    @KetexMarker
+    Punct("Punct"),
+
+    @KetexMarker
+    Space("Space"),
+
+    @KetexMarker
+    Upper("Upper"),
+
+    @KetexMarker
+    XDigit("XDigit"),
+}
 
 context(KetexFragment)
 @KetexMarker
@@ -127,29 +267,42 @@ context(KetexFragment)
 val index: (Int) -> KetexToken
     get() = { """\$it""".token }
 
+
 /**
- * Append a named subpattern token (`\k{name}`) to the regex.
+ * Append a unicode property token (`\p{IsScript}`) to the regex.
  *
- * > Matches the same text a capture group called `name` matched and captured
+ * > Matches a unicode character in the given [script][UnicodeScript].
  */
 context(KetexFragment)
 @KetexMarker
-val name: (String) -> KetexToken
-    get() = { """\k{$it}""".token }
-
-
-/**
- * Append a subpattern/backreference token (`\#`) to the regex.
- *
- * > This will match a repeat of the text matched and captured by the capture group # (number) specified.
- */
-context(KetexFragment)
-@KetexMarker
-val category: (UnicodeScript) -> KetexToken
-    get() = { script ->
-        val formattedScript = script.name.split("_").joinToString("_") {
-            it.first().uppercase() + it.substring(1).lowercase()
-        }
-
-        """\p{In$formattedScript}""".token
+fun property(script: UnicodeScript): KetexToken {
+    val formattedScript = script.name.split("_").joinToString("_") {
+        it.first().uppercase() + it.substring(1).lowercase()
     }
+
+    return """\p{Is$formattedScript}""".token
+}
+
+/**
+ * Append a unicode property token (`\p{InScript}`) to the regex.
+ *
+ * > Matches a unicode character in the given [block][UnicodeBlock].
+ */
+context(KetexFragment)
+@KetexMarker
+fun property(block: UnicodeBlock): KetexToken {
+    val formattedScript = block.toString().split("_").joinToString("_") {
+        it.first().uppercase() + it.substring(1).lowercase()
+    }
+
+    return """\p{In$formattedScript}""".token
+}
+
+/**
+ * Append a unicode property token (`\p{}`) to the regex.
+ *
+ * > Matches a unicode character in the given [category][CharacterCategory].
+ */
+context(KetexFragment)
+@KetexMarker
+fun property(category: CharacterCategory) = """\p{${category.id}""".token
