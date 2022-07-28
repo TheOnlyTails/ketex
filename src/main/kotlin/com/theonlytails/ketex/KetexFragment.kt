@@ -97,7 +97,9 @@ abstract class KetexFragment {
     @KetexMarker
     internal fun String.escape(): String {
         val reservedChars = listOf('.', '(', ')', '[', ']', '{', '}', '*', '+', '?', '^', '$', '/', '\\', '-', '|')
-        return this.map { if (it in reservedChars) """\$it""" else it }.joinToString("")
+        return toCharArray().joinToString("") {
+            if (it in reservedChars) """\$it""" else "$it"
+        }
     }
 
     private operator fun StringBuilder.plusAssign(str: CharSequence) {
