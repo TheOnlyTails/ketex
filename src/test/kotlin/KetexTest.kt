@@ -307,6 +307,15 @@ class KetexTest {
                 +index(1)
             }
         )
+
+        assertEquals("""(?<name>.)\k<name>""",
+            regexAsString {
+                +group(name = "name") {
+                    +any
+                }
+                +named("name")
+            }
+        )
     }
 
     @Test

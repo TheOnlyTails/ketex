@@ -267,6 +267,15 @@ context(KetexFragment)
 val index: (Int) -> KetexToken
     get() = { """\$it""".token }
 
+/**
+ * Append a named subpattern/backreference token (`\k<name>`) to the regex.
+ *
+ * > Matches the same text matched and captured by a previously named capture group.
+ */
+context(KetexFragment)
+@KetexMarker
+val named: (String) -> KetexToken
+    get() = { """\k<$it>""".token }
 
 /**
  * Append a unicode property token (`\p{IsScript}`) to the regex.
