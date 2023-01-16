@@ -88,6 +88,8 @@ $dokka.location:com.theonlytails.ketex/CharacterCategory.UppercaseLetter///Point
 $dokka.location:com.theonlytails.ketex/CharacterCategory.XDigit///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}ketex/com.theonlytails.ketex/-character-category/-x-digit/index.html
 $dokka.location:com.theonlytails.ketex/CharacterCategory///PointingToDeclaration/ketex/com.theonlytails.ketex/-character-category/index.html
 $dokka.location:com.theonlytails.ketex/CharacterCategory/id/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-character-category/id.html
+$dokka.location:com.theonlytails.ketex/CharacterCategory/valueOf/#kotlin.String/PointingToDeclaration/ketex/com.theonlytails.ketex/-character-category/value-of.html
+$dokka.location:com.theonlytails.ketex/CharacterCategory/values/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-character-category/values.html
 $dokka.location:com.theonlytails.ketex/KetexBuilder///PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-builder/index.html
 $dokka.location:com.theonlytails.ketex/KetexBuilder/KetexBuilder/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-builder/-ketex-builder.html
 $dokka.location:com.theonlytails.ketex/KetexBuilder/toRegex/#kotlin.Array[kotlin.text.RegexOption]/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-builder/to-regex.html
@@ -112,11 +114,12 @@ $dokka.location:com.theonlytails.ketex/KetexGroup.KetexGroupType.PositiveLookahe
 $dokka.location:com.theonlytails.ketex/KetexGroup.KetexGroupType.PositiveLookbehind///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}ketex/com.theonlytails.ketex/-ketex-group/-ketex-group-type/-positive-lookbehind/index.html
 $dokka.location:com.theonlytails.ketex/KetexGroup.KetexGroupType///PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-group/-ketex-group-type/index.html
 $dokka.location:com.theonlytails.ketex/KetexGroup.KetexGroupType/sign/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-group/-ketex-group-type/sign.html
+$dokka.location:com.theonlytails.ketex/KetexGroup.KetexGroupType/valueOf/#kotlin.String/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-group/-ketex-group-type/value-of.html
+$dokka.location:com.theonlytails.ketex/KetexGroup.KetexGroupType/values/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-group/-ketex-group-type/values.html
 $dokka.location:com.theonlytails.ketex/KetexGroup///PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-group/index.html
 $dokka.location:com.theonlytails.ketex/KetexGroup/KetexGroup/#com.theonlytails.ketex.KetexGroup.KetexGroupType#kotlin.String/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-group/-ketex-group.html
 $dokka.location:com.theonlytails.ketex/KetexGroup/toString/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-group/to-string.html
 $dokka.location:com.theonlytails.ketex/KetexMarker///PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-marker/index.html
-$dokka.location:com.theonlytails.ketex/KetexMarker/KetexMarker/#/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-marker/-ketex-marker.html
 $dokka.location:com.theonlytails.ketex/KetexSet///PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set/index.html
 $dokka.location:com.theonlytails.ketex/KetexSet/KetexSet/#kotlin.Boolean/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set/-ketex-set.html
 $dokka.location:com.theonlytails.ketex/KetexSet/intersect/#com.theonlytails.ketex.KetexSet/PointingToDeclaration/ketex/com.theonlytails.ketex/-ketex-set/intersect.html
