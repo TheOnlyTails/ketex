@@ -8,9 +8,8 @@ package com.theonlytails.ketex
  */
 context(KetexFragment)
 @KetexMarker
-infix fun KetexToken.count(count: Int) = KetexToken {
-    "${this@count()}{$count}"
-}
+infix fun KetexToken.count(count: Int) =
+	"${this@count()}{$count}".token
 
 /**
  * Appends a range quantifier (`{1,3}`) to the current token.
@@ -20,9 +19,8 @@ infix fun KetexToken.count(count: Int) = KetexToken {
  */
 context(KetexFragment)
 @KetexMarker
-infix fun KetexToken.between(range: IntRange) = KetexToken {
-    "${this@between()}{${range.first},${range.last}}"
-}
+infix fun KetexToken.between(range: IntRange) =
+    "${this@between()}{${range.first},${range.last}}".token
 
 /**
  * Appends a minimum quantifier (`{3,}`) to the current token.
@@ -32,9 +30,8 @@ infix fun KetexToken.between(range: IntRange) = KetexToken {
  */
 context(KetexFragment)
 @KetexMarker
-infix fun KetexToken.atLeast(min: Int) = KetexToken {
-    "${this@atLeast()}{$min,}"
-}
+infix fun KetexToken.atLeast(min: Int) =
+	"${this@atLeast()}{$min,}".token
 
 /**
  * Appends a plus quantifier (`+`) to the current token.
@@ -43,9 +40,8 @@ infix fun KetexToken.atLeast(min: Int) = KetexToken {
  */
 context(KetexFragment)
 @KetexMarker
-fun KetexToken.some() = KetexToken {
-    "${this@some()}+"
-}
+fun KetexToken.some() =
+	"${this@some()}+".token
 
 /**
  * Appends a star quantifier (`*`) to the current token.
@@ -54,9 +50,8 @@ fun KetexToken.some() = KetexToken {
  */
 context(KetexFragment)
 @KetexMarker
-fun KetexToken.maybe() = KetexToken {
-    "${this@maybe()}*"
-}
+fun KetexToken.maybe() =
+	"${this@maybe()}*".token
 
 /**
  * Appends an optional quantifier (`?`) to the current token.
@@ -66,9 +61,8 @@ fun KetexToken.maybe() = KetexToken {
  */
 context(KetexFragment)
 @KetexMarker
-fun KetexToken.option() = KetexToken {
-    "${this@option()}?"
-}
+fun KetexToken.option() =
+	"${this@option()}?".token
 /**
  * Appends a lazy modifier (`?`) to the previous quantifier.
  *
@@ -81,7 +75,6 @@ context(KetexFragment)
 @KetexMarker
 fun KetexToken.lazy() = option()
 
-
 /**
  * Appends an alternation token (`|`) to the current token.
  *
@@ -90,6 +83,5 @@ fun KetexToken.lazy() = option()
  */
 context(KetexFragment)
 @KetexMarker
-infix fun KetexToken.or(other: KetexToken) = KetexToken {
-    "${this@or()}|${other()}"
-}
+infix fun KetexToken.or(other: KetexToken) =
+	"${this@or()}|${other()}".token

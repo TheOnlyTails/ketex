@@ -24,7 +24,7 @@ val end by token("$")
  * Append a word boundary anchor (`\b`) to the regex.
  *
  * > Matches a word boundary position between a word character and non-word character or position (start / end of string).
- * > See the word character class ([w][word]) for more info.
+ * > See the word character class ([\w][word]) for more info.
  */
 context(KetexBuilder)
 @KetexMarker

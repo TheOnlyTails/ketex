@@ -4,20 +4,10 @@ import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath(group = "com.vanniktech", name = "gradle-maven-publish-plugin", version = "latest.release")
-    }
-}
-
-apply(plugin = "com.vanniktech.maven.publish.base")
-
 plugins {
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.8.0"
     id("org.jetbrains.dokka") version "latest.release" // dokka
+    id("com.vanniktech.maven.publish.base") version "latest.release"
     `java-library`
     idea
 }
@@ -57,7 +47,6 @@ plugins.withId("com.vanniktech.maven.publish.base") {
     @Suppress("UnstableApiUsage")
     configure<MavenPublishBaseExtension> {
         configure(KotlinJvm(Dokka("dokkaHtml"), true))
-
         publishToMavenCentral(SonatypeHost.S01)
         signAllPublications()
 

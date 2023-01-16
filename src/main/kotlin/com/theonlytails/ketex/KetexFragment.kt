@@ -1,8 +1,5 @@
 package com.theonlytails.ketex
 
-import kotlin.properties.ReadOnlyProperty
-import kotlin.reflect.KProperty
-
 @KetexMarker
 fun interface KetexToken {
     override fun toString(): String
@@ -11,7 +8,7 @@ fun interface KetexToken {
 }
 
 @KetexMarker
-internal fun token(str: String) = ReadOnlyProperty { _: Any?, _: KProperty<*> ->
+internal fun token(str: String) = lazy {
     KetexToken { str }
 }
 
